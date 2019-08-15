@@ -1,0 +1,439 @@
+﻿<!--This HTML is used in the render function to build the elements within the plugin. The render function first creates a
+Dijit ContentPane to hold all the elements. The ContentPane is assigned a dynamic id upon creation. The render function
+takes the ContentPane id and prepends it to every element with a declared id in this HTML before the elements are created.
+The unique ContentPane id makes all the element ids unique and prevents duplicate id errors across other apps.-->
+
+<div id="getHelpBtnWrap" class="getHelpBtnWrap hide">
+	<button id="getHelpBtn" class="button button-default">Start Using Sample App</button>
+</div>
+<div id="umr-wrap" class="flex1 umr-wrap" style="padding:0.5em; color: #5d6165;">
+	<section class="umr-first-section">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<h3>Identify Floodplain Units</h3>
+		<div id="top-controls">
+			<h4>Select Flood Frequency</h4>
+			<div class="toggle-btn">
+				<input type="radio" id="ff-1" name="floodFreq" value="1"/>
+				<label for="ff-1">1-in-5-year</label>
+				<input type="radio" id="ff-2" name="floodFreq" value="2"/>
+				<label for="ff-2">1-in-100-year</label>
+				<input type="radio" id="ff-3" name="floodFreq" value="3"/>
+				<label for="ff-3">1-in-500-year</label>
+			</div>	
+			<div style="position:relative;">
+				<h4>View Floodplains By Watershed</h4>
+				<div id="catch-text" class="catch-text">Zoom in to Activate</div>
+			</div>
+			<div class="toggle-btn">
+				<input type="radio" id="-h8" name="huc" value="0"/>
+				<label for="-h8">HUC-8</label>
+				<input type="radio" id="-h12" name="huc" value="1"/>
+				<label for="-h12">HUC-12</label>
+				<input type="radio" id="-catch" name="huc" value="2" disabled/>
+				<label for="-catch">Catchment</label>
+			</div>
+			<h4>Select Management Action</h4>
+			<div class="toggle-btn">
+				<input type="radio" id="mact-1" name="mngmtAction" value="p"/>
+				<label for="mact-1">Protection</label>
+				<input type="radio" id="mact-2" name="mngmtAction" value="r"/>
+				<label for="mact-2">Restoration</label>
+				<input type="radio" id="mact-3" name="mngmtAction" value="rr"/>
+				<label for="mact-3">Restoration/Reconnection</label>
+			</div>
+		</div>
+	</section>
+	<section id="mng-act-wrap" class="mng-act-wrap">
+		<div style="position:relative;">
+			<h3>Filter Floodplain Units</h3>
+			<div style="position:absolute; right:108px; top:-7px;">
+				<button id="saveAndShare" class="button button-default" style="height:31px; padding:6px 8px; display:none; background-color:rgb(215, 246, 191);">Save and Share</button>
+			</div>
+			<div style="position:absolute; right:5px; top:-7px;">
+				<button id="resetFilters" class="button button-default" style="height:31px; padding:6px 8px;">Reset Filters</button>
+			</div>	
+		</div>
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Available Floodplain Area</h4>	
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-KM2">
+				<div class="flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="-slCb1">
+							<input type="checkbox" class="-slCb" id="-slCb1" name="-slCb1"><span class="check"></span>
+							<span class="form-text under">Available Area</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> sq km</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-KM2" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>						
+				</div>	
+			</div>
+		</div>	
+		
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Nutrients</h4>
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-ACCp">	
+				<div class="flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="-slCb2">
+							<input type="checkbox" class="-slCb" id="-slCb2" name="-slCb2"><span class="check"></span>
+							<span class="form-text under">Accumulated yield of N & P</span>
+						</label>
+					</div>
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-ACCp" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-DINp">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb3">
+							<input type="checkbox" class="-slCb" id="-slCb3" name="-slCb3"><span class="check"></span>
+							<span class="form-text under">Delivered incremental yield of N & P</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-DINp" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-GDDs">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb4">
+							<input type="checkbox" class="-slCb" id="-slCb4" name="-slCb4"><span class="check"></span>
+							<span class="form-text under">Growing degree days</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-GDDs" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		
+		<h4 id="CPI-head"><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Land Conversion</h4>
+		<div class="oc-wrap">	
+			<div class="cntrlWrap" id="wrap-CPI">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb6">
+							<input type="checkbox" class="-slCb" id="-slCb6" name="-slCb6"><span class="check"></span>
+							<span class="form-text under">National Commodity Crop Productivity Index</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-CPI" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Habitat</h4>
+		<div class="oc-wrap">	
+			<div class="cntrlWrap" id="wrap-inIBA">
+				<div class="mng-act-toggle flexSlideWrap">
+					<div class="flex1 rcb">
+						<label class="form-component" for="rb_cb1">
+							<input type="checkbox" class="rb_cb" id="rb_cb1" name="rb_cb1"><span class="check"></span>
+							<span class="form-text under">Important Bird Areas</span>
+						</label>
+					</div>	
+					<div class="umr-radio-indent flex1">
+						<label class="form-component" for="-rb1a">
+							<input checked type="radio" id="-rb1a" name="inIBA" value="1" disabled>
+							<span class="check"></span><span class="form-text">Present</span>
+						</label>
+						<label class="form-component" for="-rb1b">
+							<input type="radio" id="-rb1b" name="inIBA" value="0" disabled>
+							<span class="check"></span><span class="form-text">Absent</span>
+						</label>
+					</div>	
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>
+			</div>
+			<div class="cntrlWrap" id="wrap-TNC">
+				<div class="mng-act-toggle flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="rb_cb2">
+							<input type="checkbox" class="rb_cb" id="rb_cb2" name="rb_cb2"><span class="check"></span>
+							<span class="form-text under">TNC Ecoregional Assessment Units</span>
+						</label>
+					</div>	
+					<div class="umr-radio-indent flex1">
+						<label class="form-component" for="-rb2a">
+							<input checked type="radio" id="-rb2a" name="TNC" value="1" disabled>
+							<span class="check"></span><span class="form-text">Present</span>
+						</label>
+						<label class="form-component" for="-rb2b">
+							<input type="radio" id="-rb2b" name="TNC" value="0" disabled>
+							<span class="check"></span><span class="form-text">Absent</span>
+						</label>
+					</div>	
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>
+			</div>
+			<div class="cntrlWrap" id="wrap-WT_TOT">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb7">
+							<input type="checkbox" class="-slCb" id="-slCb7" name="-slCb7"><span class="check"></span>
+							<span class="form-text under">At-Risk Wetland Species</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-WT_TOT" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-FWScrit">
+				<div class="mng-act-toggle flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="rb_cb3">
+							<input type="checkbox" class="rb_cb" id="rb_cb3" name="rb_cb3"><span class="check"></span>
+							<span class="form-text under">USFWS Threatened & Endangered Species Active Critical Habitat</span>
+						</label>
+					</div>	
+					<div class="umr-radio-indent flex1">
+						<label class="form-component" for="-rb3a">
+							<input checked type="radio" id="-rb3a" name="FWScrit" value="1" disabled>
+							<span class="check"></span><span class="form-text">Present</span>
+						</label>
+						<label class="form-component" for="-rb3b">
+							<input type="radio" id="-rb3b" name="FWScrit" value="0" disabled>
+							<span class="check"></span><span class="form-text">Absent</span>
+						</label>
+					</div>	
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>
+			</div>
+			<div class="cntrlWrap" id="wrap-ABCcorr">
+				<div class="mng-act-toggle flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="rb_cb4">
+							<input type="checkbox" class="rb_cb" id="rb_cb4" name="rb_cb4"><span class="check"></span>
+							<span class="form-text under">American Bird Conservancy Corridors & Key Habitat Bird Areas</span>
+						</label>
+					</div>	
+					<div class="umr-radio-indent flex1">
+						<label class="form-component" for="-rb4a">
+							<input checked type="radio" id="-rb4a" name="ABCcorr" value="1" disabled>
+							<span class="check"></span><span class="form-text">Present</span>
+						</label>
+						<label class="form-component" for="-rb4b">
+							<input type="radio" id="-rb4b" name="ABCcorr" value="0" disabled>
+							<span class="check"></span><span class="form-text">Absent</span>
+						</label>
+					</div>	
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-cumu_hci">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb8">
+							<input type="checkbox" class="-slCb" id="-slCb8" name="-slCb8"><span class="check"></span>
+							<span class="form-text under">National Fish Habitat Partnership Cumulative Habitat Condition Index</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-cumu_hci" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Population Exposure</h4>
+		<div class="oc-wrap">	
+			<div class="cntrlWrap" id="wrap-popnow">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb9">
+							<input type="checkbox" class="-slCb" id="-slCb9" name="-slCb9"><span class="check"></span>
+							<span class="form-text under">Current population</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-popnow" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>			
+			</div>
+			<div class="cntrlWrap" id="wrap-pop2050">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb10">
+							<input type="checkbox" class="-slCb" id="-slCb10" name="-slCb10"><span class="check"></span>
+							<span class="form-text under">Projected population (2050)</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-pop2050" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Future Economic Assset Exposure</h4>
+		<div class="oc-wrap">	
+			<div class="cntrlWrap" id="wrap-P2_2050">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb11">
+							<input type="checkbox" class="-slCb" id="-slCb11" name="-slCb11"><span class="check"></span>
+							<span class="form-text under">Economic asset exposure (2050) (SSP2)</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-P2_2050" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-P5_2050">	
+				<div class="flexSlideWrap">
+					<div class="flex1">		
+						<label class="form-component" for="-slCb12">
+							<input type="checkbox" class="-slCb" id="-slCb12" name="-slCb12"><span class="check"></span>
+							<span class="form-text under">Economic asset exposure (2050) (SSP5)</span>
+						</label>
+					</div>
+					<div class="flex1a">
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-P5_2050" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>			
+			</div>
+		</div>	
+	</section>
+</div>
+
