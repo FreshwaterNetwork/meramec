@@ -331,7 +331,7 @@ function ( declare, Query, QueryTask ) {
 			},
 			layerDefs: function(t){
 				if (t.obj.stateSet == "no"){
-					t.obj.exp = [t.KM2, t.ACCp, t.DINp, t.GDDs, t.CPI, t.inIBA, t.TNC, t.WT_TOT, t.FWScrit, t.ABCcorr, t.cumu_hci, t.popnow, t.pop2050, t.P2_2050, t.P5_2050]
+					t.obj.exp = [t.Acres, t.TN, t.TP]
 				}
 				var exp = "OBJECTID > 0";
 				var cnt = 0;
