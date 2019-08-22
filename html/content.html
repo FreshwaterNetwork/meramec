@@ -43,10 +43,10 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 				<button id="saveAndShare" class="button button-default" style="height:31px; padding:6px 8px; display:none; background-color:rgb(215, 246, 191);">Save and Share</button>
 			</div>
 			<div style="position:absolute; right:5px; top:-7px;">
-				<button id="resetFilters" class="button button-default" style="height:31px; padding:6px 8px;">Reset Filters</button>
+				<button id="resetFilters" class="button button-default" style="height:31px; padding:6px 8px; display:none;">Reset Filters</button>
 			</div>	
 		</div>
-		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Available Floodplain Area</h4>	
+<!-- 		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Available Floodplain Area</h4>	
 		<div class="oc-wrap">
 			<div class="cntrlWrap" id="wrap-Acres">
 				<div class="flexSlideWrap">
@@ -57,7 +57,7 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						</label>
 					</div>
 					<div class="flex1a">
-						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> sq km</span>
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-Acres" class="slider"></div>
 						</div>
@@ -71,9 +71,9 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>						
 				</div>	
 			</div>
-		</div>	
+		</div>	 -->
 		
-		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Water Quality</h4>
+<!-- 		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Water Quality</h4>
 		<div class="oc-wrap">
 			<div class="cntrlWrap" id="wrap-TN">	
 				<div class="flexSlideWrap">
@@ -84,7 +84,7 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						</label>
 					</div>
 					<div class="flex1a">	
-						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-TN" class="slider"></div>
 						</div>
@@ -107,7 +107,7 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						</label>
 					</div>	
 					<div class="flex1a">	
-						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-TP" class="slider"></div>
 						</div>
@@ -121,45 +121,18 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>	
 			</div>
-			<div class="cntrlWrap" id="wrap-GDDs">	
+			<div class="cntrlWrap" id="wrap-Sed">	
 				<div class="flexSlideWrap">
 					<div class="flex1">			
 						<label class="form-component" for="-slCb4">
 							<input type="checkbox" class="-slCb" id="-slCb4" name="-slCb4"><span class="check"></span>
-							<span class="form-text under">Growing degree days</span>
+							<span class="form-text under">Sediment (SWAT model)</span>
 						</label>
 					</div>	
 					<div class="flex1a">	
-						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> %</span>
-						<div class="slider-container range-slider" style="width:170px;">
-							<div id="-GDDs" class="slider"></div>
-						</div>
-					</div>
-					<div class="feInfoWrap">
-						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
-					</div>
-					<div class="feInfoTextWrap">
-						<span class="feInfoText"></span>
-						<i class="fa fa-close feInfo feInfoClose"></i>
-					</div>
-				</div>	
-			</div>
-		</div>	
-		
-		<h4 id="CPI-head"><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Land Conversion</h4>
-		<div class="oc-wrap">	
-			<div class="cntrlWrap" id="wrap-CPI">	
-				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb6">
-							<input type="checkbox" class="-slCb" id="-slCb6" name="-slCb6"><span class="check"></span>
-							<span class="form-text under">National Commodity Crop Productivity Index</span>
-						</label>
-					</div>
-					<div class="flex1a">
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
-							<div id="-CPI" class="slider"></div>
+							<div id="-Sed" class="slider"></div>
 						</div>
 					</div>
 					<div class="feInfoWrap">
@@ -171,24 +144,96 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>	
 			</div>
-		</div>	
-		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Habitat</h4>
+			<div class="cntrlWrap" id="wrap-SedAcc">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb5">
+							<input type="checkbox" class="-slCb" id="-slCb5" name="-slCb5"><span class="check"></span>
+							<span class="form-text under">Accumulated sediment (SWAT model)</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-SedAcc" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-DINCY">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb6">
+							<input type="checkbox" class="-slCb" id="-slCb6" name="-slCb6"><span class="check"></span>
+							<span class="form-text under">Nutrient loading to Gulf of Mexico (SPARROW model)</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-DINCY" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div> -->	
+<!-- 		<h4 id="NCCPI-head"><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Land Conversion</h4>
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-NCCPI">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb7">
+							<input type="checkbox" class="-slCb" id="-slCb7" name="-slCb7"><span class="check"></span>
+							<span class="form-text under">Agricultural productivity potential of soils</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-NCCPI" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div>	 -->
+<!-- 		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Connectivity</h4>
 		<div class="oc-wrap">	
-			<div class="cntrlWrap" id="wrap-inIBA">
+			<div class="cntrlWrap" id="wrap-impWet">
 				<div class="mng-act-toggle flexSlideWrap">
-					<div class="flex1 rcb">
-						<label class="form-component" for="rb_cb1">
-							<input type="checkbox" class="rb_cb" id="rb_cb1" name="rb_cb1"><span class="check"></span>
-							<span class="form-text under">Important Bird Areas</span>
+					<div class="flex1">
+						<label class="form-component" for="rb_cb0">
+							<input type="checkbox" class="rb_cb" id="rb_cb0" name="rb_cb0"><span class="check"></span>
+							<span class="form-text under">Floodplain Wetland Importance Rank</span>
 						</label>
 					</div>	
 					<div class="umr-radio-indent flex1">
-						<label class="form-component" for="-rb1a">
-							<input checked type="radio" id="-rb1a" name="inIBA" value="1" disabled>
+						<label class="form-component" for="-rb0a">
+							<input checked type="radio" id="-rb0a" name="impWet" value="1" disabled>
 							<span class="check"></span><span class="form-text">Present</span>
 						</label>
-						<label class="form-component" for="-rb1b">
-							<input type="radio" id="-rb1b" name="inIBA" value="0" disabled>
+						<label class="form-component" for="-rb0b">
+							<input type="radio" id="-rb0b" name="impWet" value="0" disabled>
 							<span class="check"></span><span class="form-text">Absent</span>
 						</label>
 					</div>	
@@ -201,21 +246,100 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>
 			</div>
-			<div class="cntrlWrap" id="wrap-TNC">
+			<div class="cntrlWrap" id="wrap-fprank">
+				<div class="mng-act-toggle flexSlideWrap">
+					<div class="flex1">
+						<label class="form-component" for="rb_cb1">
+							<input type="checkbox" class="rb_cb" id="rb_cb1" name="rb_cb1"><span class="check"></span>
+							<span class="form-text under">Floodplain Restoration Rank</span>
+						</label>
+					</div>	
+					<div class="umr-radio-indent flex1">
+						<label class="form-component" for="-rb1a">
+							<input checked type="radio" id="-rb1a" name="fprank" value="1" disabled>
+							<span class="check"></span><span class="form-text">Present</span>
+						</label>
+						<label class="form-component" for="-rb1b">
+							<input type="radio" id="-rb1b" name="fprank" value="0" disabled>
+							<span class="check"></span><span class="form-text">Absent</span>
+						</label>
+					</div>	
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>
+			</div>
+		</div>	 -->
+<!-- 		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Priority Conservation Area/Natural Areas</h4>
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-adjProt">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb8">
+							<input type="checkbox" class="-slCb" id="-slCb8" name="-slCb8"><span class="check"></span>
+							<span class="form-text under">Public Lands Adjacency</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-adjProt" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+			<div class="cntrlWrap" id="wrap-EcoSig">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb9">
+							<input type="checkbox" class="-slCb" id="-slCb9" name="-slCb9"><span class="check"></span>
+							<span class="form-text under">Ecological Significance Ranking</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-EcoSig" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div>	 -->
+<!-- 		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Habitat</h4>
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-inIBA">
 				<div class="mng-act-toggle flexSlideWrap">
 					<div class="flex1">
 						<label class="form-component" for="rb_cb2">
 							<input type="checkbox" class="rb_cb" id="rb_cb2" name="rb_cb2"><span class="check"></span>
-							<span class="form-text under">TNC Ecoregional Assessment Units</span>
+							<span class="form-text under">Important Bird Areas</span>
 						</label>
 					</div>	
 					<div class="umr-radio-indent flex1">
 						<label class="form-component" for="-rb2a">
-							<input checked type="radio" id="-rb2a" name="TNC" value="1" disabled>
+							<input checked type="radio" id="-rb2a" name="inIBA" value="1" disabled>
 							<span class="check"></span><span class="form-text">Present</span>
 						</label>
 						<label class="form-component" for="-rb2b">
-							<input type="radio" id="-rb2b" name="TNC" value="0" disabled>
+							<input type="radio" id="-rb2b" name="inIBA" value="0" disabled>
 							<span class="check"></span><span class="form-text">Absent</span>
 						</label>
 					</div>	
@@ -230,13 +354,13 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 			</div>
 			<div class="cntrlWrap" id="wrap-WT_TOT">	
 				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb7">
-							<input type="checkbox" class="-slCb" id="-slCb7" name="-slCb7"><span class="check"></span>
+					<div class="flex1">			
+						<label class="form-component" for="-slCb10">
+							<input type="checkbox" class="-slCb" id="-slCb10" name="-slCb10"><span class="check"></span>
 							<span class="form-text under">At-Risk Wetland Species</span>
 						</label>
-					</div>
-					<div class="flex1a">
+					</div>	
+					<div class="flex1a">	
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-WT_TOT" class="slider"></div>
@@ -251,21 +375,21 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>	
 			</div>
-			<div class="cntrlWrap" id="wrap-FWScrit">
+			<div class="cntrlWrap" id="wrap-ABCcorr">
 				<div class="mng-act-toggle flexSlideWrap">
 					<div class="flex1">
 						<label class="form-component" for="rb_cb3">
 							<input type="checkbox" class="rb_cb" id="rb_cb3" name="rb_cb3"><span class="check"></span>
-							<span class="form-text under">USFWS Threatened & Endangered Species Active Critical Habitat</span>
+							<span class="form-text under">American Bird Conservancy Corridors & Key Habitat Bird Areas</span>
 						</label>
 					</div>	
 					<div class="umr-radio-indent flex1">
 						<label class="form-component" for="-rb3a">
-							<input checked type="radio" id="-rb3a" name="FWScrit" value="1" disabled>
+							<input checked type="radio" id="-rb3a" name="ABCcorr" value="1" disabled>
 							<span class="check"></span><span class="form-text">Present</span>
 						</label>
 						<label class="form-component" for="-rb3b">
-							<input type="radio" id="-rb3b" name="FWScrit" value="0" disabled>
+							<input type="radio" id="-rb3b" name="ABCcorr" value="0" disabled>
 							<span class="check"></span><span class="form-text">Absent</span>
 						</label>
 					</div>	
@@ -278,21 +402,21 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>
 			</div>
-			<div class="cntrlWrap" id="wrap-ABCcorr">
+			<div class="cntrlWrap" id="wrap-anyHab">
 				<div class="mng-act-toggle flexSlideWrap">
 					<div class="flex1">
 						<label class="form-component" for="rb_cb4">
 							<input type="checkbox" class="rb_cb" id="rb_cb4" name="rb_cb4"><span class="check"></span>
-							<span class="form-text under">American Bird Conservancy Corridors & Key Habitat Bird Areas</span>
+							<span class="form-text under">In any of the above 3 Habitat layers</span>
 						</label>
 					</div>	
 					<div class="umr-radio-indent flex1">
 						<label class="form-component" for="-rb4a">
-							<input checked type="radio" id="-rb4a" name="ABCcorr" value="1" disabled>
+							<input checked type="radio" id="-rb4a" name="anyHab" value="1" disabled>
 							<span class="check"></span><span class="form-text">Present</span>
 						</label>
 						<label class="form-component" for="-rb4b">
-							<input type="radio" id="-rb4b" name="ABCcorr" value="0" disabled>
+							<input type="radio" id="-rb4b" name="anyHab" value="0" disabled>
 							<span class="check"></span><span class="form-text">Absent</span>
 						</label>
 					</div>	
@@ -303,17 +427,17 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						<span class="feInfoText"></span>
 						<i class="fa fa-close feInfo feInfoClose"></i>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="cntrlWrap" id="wrap-cumu_hci">	
 				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb8">
-							<input type="checkbox" class="-slCb" id="-slCb8" name="-slCb8"><span class="check"></span>
+					<div class="flex1">			
+						<label class="form-component" for="-slCb11">
+							<input type="checkbox" class="-slCb" id="-slCb11" name="-slCb11"><span class="check"></span>
 							<span class="form-text under">National Fish Habitat Partnership Cumulative Habitat Condition Index</span>
 						</label>
-					</div>
-					<div class="flex1a">
+					</div>	
+					<div class="flex1a">	
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-cumu_hci" class="slider"></div>
@@ -326,20 +450,43 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						<span class="feInfoText"></span>
 						<i class="fa fa-close feInfo feInfoClose"></i>
 					</div>
-				</div>		
+				</div>	
 			</div>
-		</div>
-		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Population Exposure</h4>
-		<div class="oc-wrap">	
+			<div class="cntrlWrap" id="wrap-HPFedEnd">	
+				<div class="flexSlideWrap">
+					<div class="flex1">			
+						<label class="form-component" for="-slCb12">
+							<input type="checkbox" class="-slCb" id="-slCb12" name="-slCb12"><span class="check"></span>
+							<span class="form-text under">Number of federally endangered species</span>
+						</label>
+					</div>	
+					<div class="flex1a">	
+						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
+						<div class="slider-container range-slider" style="width:170px;">
+							<div id="-HPFedEnd" class="slider"></div>
+						</div>
+					</div>
+					<div class="feInfoWrap">
+						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
+					</div>
+					<div class="feInfoTextWrap">
+						<span class="feInfoText"></span>
+						<i class="fa fa-close feInfo feInfoClose"></i>
+					</div>
+				</div>	
+			</div>
+		</div> -->
+	<!-- 	<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Population Exposure</h4>
+		<div class="oc-wrap">
 			<div class="cntrlWrap" id="wrap-popnow">	
 				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb9">
-							<input type="checkbox" class="-slCb" id="-slCb9" name="-slCb9"><span class="check"></span>
-							<span class="form-text under">Current population</span>
+					<div class="flex1">			
+						<label class="form-component" for="-slCb13">
+							<input type="checkbox" class="-slCb" id="-slCb13" name="-slCb13"><span class="check"></span>
+							<span class="form-text under">Population exposed to floods (present-day)</span>
 						</label>
-					</div>
-					<div class="flex1a">
+					</div>	
+					<div class="flex1a">	
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-popnow" class="slider"></div>
@@ -352,17 +499,17 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 						<span class="feInfoText"></span>
 						<i class="fa fa-close feInfo feInfoClose"></i>
 					</div>
-				</div>			
+				</div>	
 			</div>
 			<div class="cntrlWrap" id="wrap-pop2050">	
 				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb10">
-							<input type="checkbox" class="-slCb" id="-slCb10" name="-slCb10"><span class="check"></span>
-							<span class="form-text under">Projected population (2050)</span>
+					<div class="flex1">			
+						<label class="form-component" for="-slCb14">
+							<input type="checkbox" class="-slCb" id="-slCb14" name="-slCb14"><span class="check"></span>
+							<span class="form-text under">Population exposed to floods (2050)</span>
 						</label>
-					</div>
-					<div class="flex1a">
+					</div>	
+					<div class="flex1a">	
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
 							<div id="-pop2050" class="slider"></div>
@@ -377,21 +524,21 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>	
 			</div>
-		</div>	
-		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Future Economic Assset Exposure</h4>
-		<div class="oc-wrap">	
-			<div class="cntrlWrap" id="wrap-P2_2050">	
+		</div>
+		<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>Future Economic Asset Exposure</h4>
+		<div class="oc-wrap">
+			<div class="cntrlWrap" id="wrap-Dam2050">	
 				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb11">
-							<input type="checkbox" class="-slCb" id="-slCb11" name="-slCb11"><span class="check"></span>
-							<span class="form-text under">Economic asset exposure (2050) (SSP2)</span>
+					<div class="flex1">			
+						<label class="form-component" for="-slCb15">
+							<input type="checkbox" class="-slCb" id="-slCb15" name="-slCb15"><span class="check"></span>
+							<span class="form-text under">Economic asset exposure (2050) (Moderate population growth)</span>
 						</label>
-					</div>
-					<div class="flex1a">
+					</div>	
+					<div class="flex1a">	
 						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
 						<div class="slider-container range-slider" style="width:170px;">
-							<div id="-P2_2050" class="slider"></div>
+							<div id="-Dam2050" class="slider"></div>
 						</div>
 					</div>
 					<div class="feInfoWrap">
@@ -403,30 +550,7 @@ The unique ContentPane id makes all the element ids unique and prevents duplicat
 					</div>
 				</div>	
 			</div>
-			<div class="cntrlWrap" id="wrap-P5_2050">	
-				<div class="flexSlideWrap">
-					<div class="flex1">		
-						<label class="form-component" for="-slCb12">
-							<input type="checkbox" class="-slCb" id="-slCb12" name="-slCb12"><span class="check"></span>
-							<span class="form-text under">Economic asset exposure (2050) (SSP5)</span>
-						</label>
-					</div>
-					<div class="flex1a">
-						<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span></span>
-						<div class="slider-container range-slider" style="width:170px;">
-							<div id="-P5_2050" class="slider"></div>
-						</div>
-					</div>
-					<div class="feInfoWrap">
-						<i class="fa fa-info-circle feInfo feInfoOpen"></i>
-					</div>
-					<div class="feInfoTextWrap">
-						<span class="feInfoText"></span>
-						<i class="fa fa-close feInfo feInfoClose"></i>
-					</div>
-				</div>			
-			</div>
-		</div>	
+		</div>		 -->
 	</section>
 </div>
 

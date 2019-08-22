@@ -5,6 +5,68 @@ function ( declare, Query, QueryTask ) {
         "use strict";
 
         return declare(null, {
+        	buildElements: function(t){
+        		let num = 0;
+        		let num1 = 0;
+        		$.each(t.elementObj,function(i,v){
+        			num = num + 1;
+        			$(`#${t.id}mng-act-wrap`).append(`
+        				<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>${v.header}</h4>
+        				<div class="oc-wrap" id="${t.id}oc-wrap${num}"></div>
+        			`);
+        			$.each(v.controls,function(i1,v1){
+        				num1 = num1 + 1;
+        				if (v1.type == "slider"){
+        					$(`#${t.id}oc-wrap${num}`).append(`
+        						<div class="cntrlWrap" id="wrap-${v1.field}">
+									<div class="flexSlideWrap">
+										<div class="flex1">
+											<label class="form-component" for="-slCb${num1}">
+												<input type="checkbox" class="-slCb" id="-slCb${num1}" name="-slCb${num1}"><span class="check"></span>
+												<span class="form-text under">${v1.label}</span>
+											</label>
+										</div>
+										<div class="flex1a">
+											<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
+											<div class="slider-container range-slider" style="width:170px;">
+												<div id="-${v1.field}" class="slider"></div>
+											</div>
+										</div>
+										<div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+										<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fa fa-close feInfo feInfoClose"></i></div>						
+									</div>	
+								</div>
+        					`);
+        				}
+        				if (v1.type == "radio"){
+        					$(`#${t.id}oc-wrap${num}`).append(`
+        						<div class="cntrlWrap" id="wrap-${v1.field}">
+									<div class="mng-act-toggle flexSlideWrap">
+										<div class="flex1">
+											<label class="form-component" for="rb_cb${num1}">
+												<input type="checkbox" class="rb_cb" id="rb_cb${num1}" name="rb_cb${num1}"><span class="check"></span>
+												<span class="form-text under">${v1.label}</span>
+											</label>
+										</div>	
+										<div class="umr-radio-indent flex1">
+											<label class="form-component" for="-rb${num1}a">
+												<input checked type="radio" id="-rb${num1}a" name="${v1.field}" value="1" disabled>
+												<span class="check"></span><span class="form-text">Present</span>
+											</label>
+											<label class="form-component" for="-rb${num1}b">
+												<input type="radio" id="-rb${num1}b" name="${v1.field}" value="0" disabled>
+												<span class="check"></span><span class="form-text">Absent</span>
+											</label>
+										</div>	
+										<div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+										<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fa fa-close feInfo feInfoClose"></i></div>
+									</div>
+								</div>
+        					`);	
+        				}
+        			})
+        		})
+        	},
 			eventListeners: function(t){
 				var clickCnt = 0;
 				// Flood frequency, HUC, and Management Action clicks
@@ -25,7 +87,7 @@ function ( declare, Query, QueryTask ) {
 					// Update range slider min and max values 
 					var slen = $('#' + t.id + 'mng-act-wrap .slider').length;
 					t.ord = ""
-					$("#" + t.id + "CPI-head").show();
+					$("#" + t.id + "NCCPI-head").show();
 					$.each($('#' + t.id + 'mng-act-wrap .slider'),function(i,v){
 						if (slen == i + 1){
 							t.ord = "last";
@@ -52,8 +114,8 @@ function ( declare, Query, QueryTask ) {
 									$("#" + v.id).parent().parent().parent().parent().hide();
 									var options = $("#" + v.id).slider( 'option' );
 									$("#" + v.id).slider( 'option', 'values', [ options.min, options.max ] );
-									if (v1 == "CPI"){
-										$("#" + t.id + "CPI-head").hide();
+									if (v1 == "NCCPI"){
+										$("#" + t.id + "NCCPI-head").hide();
 									}
 								}	
 							}
@@ -69,8 +131,8 @@ function ( declare, Query, QueryTask ) {
 						}else{
 							$(v).parent().parent().parent().parent().hide()
 							$(v).prop("disabled", true)
-							if ( $("#" + t.id + t.radioObj[t.fe][ben].cbid).prop("checked") ){
-								$("#" + t.id + t.radioObj[t.fe][ben].cbid).trigger("click")
+							if ( $("#" + t.id + t.radioObj[t.fe][ben].cbid ).prop("checked") ){
+								$("#" + t.id + t.radioObj[t.fe][ben].cbid ).trigger("click")
 							}
 						}
 					});	
@@ -247,8 +309,10 @@ function ( declare, Query, QueryTask ) {
 				})
 				if (n == 0){
 					$(`#${t.id}saveAndShare`).hide();
+					$(`#${t.id}resetFilters`).hide();
 				}else{
 					$(`#${t.id}saveAndShare`).show();
+					$(`#${t.id}resetFilters`).show();
 				}
 			},
 			sliderChange: function(e, ui, t){
@@ -331,7 +395,7 @@ function ( declare, Query, QueryTask ) {
 			},
 			layerDefs: function(t){
 				if (t.obj.stateSet == "no"){
-					t.obj.exp = [t.Acres, t.TN, t.TP]
+					t.obj.exp = [t.Acres, t.TN, t.TP, t.Sed, t.SedAcc, t.DINCY, t.impWet, t.NCCPI, t.fprank, t.adjProt, t.EcoSig, t.inIBA, t.ABCcorr, t.WT_TOT, t.anyHab, t.cumu_hci, t.HPFedEnd, t.popnow, t.pop2050, t.Dam2050]
 				}
 				var exp = "OBJECTID > 0";
 				var cnt = 0;

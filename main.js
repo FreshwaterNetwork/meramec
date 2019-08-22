@@ -133,6 +133,8 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			$('#' + this.descID).html(popup);
 			// Set up variables
 			this.variables.makeVariables(this);
+			// Build elements
+			this.clicks.buildElements(this);
 			// Click listeners
 			this.clicks.eventListeners(this);
 			// Create ESRI objects and event listeners	
