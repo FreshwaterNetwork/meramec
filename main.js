@@ -5,7 +5,7 @@ require({
 // Bring in dojo and javascript api classes as well as varObject.json, js files, and content.html
 define([
 	"dojo/_base/declare", "framework/PluginBase", "dijit/layout/ContentPane", "dojo/dom", "dojo/dom-style", "dojo/dom-geometry", "dojo/text!./obj.json", 
-	"dojo/text!./html/content.html", "dojo/text!./html/popup.html", './js/esriapi', './js/clicks', './js/variables', 'dojo/_base/lang'	
+	"dojo/text!./html/content.html", "dojo/text!./html/popup.html", './js/esriapi', './js/clicks', './variables', 'dojo/_base/lang'	
 ],
 function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, content, popup, esriapi, clicks, variables, lang ) {
 	return declare(PluginBase, {

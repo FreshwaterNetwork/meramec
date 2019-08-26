@@ -6,9 +6,27 @@ function ( declare, Query, QueryTask ) {
 
         return declare(null, {
         	buildElements: function(t){
+        		// create intro paragraph and toggle button controls from object
+        		$(`#${t.id}introP`).html(t.topObj["introP"]);
+        		let tbnum = 0;
+        		$.each(t.topObj["toggleBtns"],function(k,v){
+        			tbnum = tbnum + 1;
+        			$(`#${t.id}top-controls`).append(`
+        				<h4>${v.header}</h4>
+        				<div id="${t.id}tb-${tbnum}" class="toggle-btn"></div>
+        			`);
+        			$.each(v.btns,function(k1,v1){
+        				$(`#${t.id}tb-${tbnum}`).append(`
+        					<input type="radio" id="${t.id}${v1.id}" name="${v.name}" value="${v1.value}"/>
+							<label for="${t.id}${v1.id}">${v1.label}</label>
+						`);	
+        			})
+        		})
+
+        		// create filter controls from object
         		let num = 0;
         		let num1 = 0;
-        		$.each(t.elementObj,function(i,v){
+        		$.each(t.filterObj,function(i,v){
         			num = num + 1;
         			$(`#${t.id}mng-act-wrap`).append(`
         				<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>${v.header}</h4>
@@ -21,15 +39,15 @@ function ( declare, Query, QueryTask ) {
         						<div class="cntrlWrap" id="wrap-${v1.field}">
 									<div class="flexSlideWrap">
 										<div class="flex1">
-											<label class="form-component" for="-slCb${num1}">
-												<input type="checkbox" class="-slCb" id="-slCb${num1}" name="-slCb${num1}"><span class="check"></span>
+											<label class="form-component" for="${t.id}-slCb${num1}">
+												<input type="checkbox" class="-slCb" id="${t.id}-slCb${num1}" name="-slCb${num1}"><span class="check"></span>
 												<span class="form-text under">${v1.label}</span>
 											</label>
 										</div>
 										<div class="flex1a">
 											<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
 											<div class="slider-container range-slider" style="width:170px;">
-												<div id="-${v1.field}" class="slider"></div>
+												<div id="${t.id}-${v1.field}" class="slider"></div>
 											</div>
 										</div>
 										<div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
@@ -40,21 +58,21 @@ function ( declare, Query, QueryTask ) {
         				}
         				if (v1.type == "radio"){
         					$(`#${t.id}oc-wrap${num}`).append(`
-        						<div class="cntrlWrap" id="wrap-${v1.field}">
+        						<div class="cntrlWrap" id="${t.id}wrap-${v1.field}">
 									<div class="mng-act-toggle flexSlideWrap">
 										<div class="flex1">
-											<label class="form-component" for="rb_cb${num1}">
-												<input type="checkbox" class="rb_cb" id="rb_cb${num1}" name="rb_cb${num1}"><span class="check"></span>
+											<label class="form-component" for="${t.id}rb_cb${num1}">
+												<input type="checkbox" class="rb_cb" id="${t.id}rb_cb${num1}" name="rb_cb${num1}"><span class="check"></span>
 												<span class="form-text under">${v1.label}</span>
 											</label>
 										</div>	
 										<div class="umr-radio-indent flex1">
-											<label class="form-component" for="-rb${num1}a">
-												<input checked type="radio" id="-rb${num1}a" name="${v1.field}" value="1" disabled>
+											<label class="form-component" for="${t.id}-rb${num1}a">
+												<input checked type="radio" id="${t.id}-rb${num1}a" name="${v1.field}" value="1" disabled>
 												<span class="check"></span><span class="form-text">Present</span>
 											</label>
-											<label class="form-component" for="-rb${num1}b">
-												<input type="radio" id="-rb${num1}b" name="${v1.field}" value="0" disabled>
+											<label class="form-component" for="${t.id}-rb${num1}b">
+												<input type="radio" id="${t.id}-rb${num1}b" name="${v1.field}" value="0" disabled>
 												<span class="check"></span><span class="form-text">Absent</span>
 											</label>
 										</div>	
@@ -87,7 +105,7 @@ function ( declare, Query, QueryTask ) {
 					// Update range slider min and max values 
 					var slen = $('#' + t.id + 'mng-act-wrap .slider').length;
 					t.ord = ""
-					$("#" + t.id + "NCCPI-head").show();
+					$("h4").show();
 					$.each($('#' + t.id + 'mng-act-wrap .slider'),function(i,v){
 						if (slen == i + 1){
 							t.ord = "last";
@@ -114,9 +132,15 @@ function ( declare, Query, QueryTask ) {
 									$("#" + v.id).parent().parent().parent().parent().hide();
 									var options = $("#" + v.id).slider( 'option' );
 									$("#" + v.id).slider( 'option', 'values', [ options.min, options.max ] );
-									if (v1 == "NCCPI"){
-										$("#" + t.id + "NCCPI-head").hide();
-									}
+									// hide the header above if the filter group is not visible and has no siblings
+									$.each(t.filterObj,function(k,v3){
+										$.each(v3.controls,function(k1,v4){
+											if (v4.field == v1 && v4.single){
+												$(`h4:contains('${v3.header}')`).hide();
+												return false;
+											}
+										})
+									})
 								}	
 							}
 						})

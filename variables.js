@@ -5,15 +5,75 @@ function ( 	declare ) {
         "use strict";
         return declare(null, {
 			makeVariables: function(t){	
-				// object to build element controls
-				t.elementObj = {
+				// build top level controls
+				t.topObj = {
+					introP: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					toggleBtns:{
+						tb1:{
+							header:"Select Flood Frequency",
+							name:"floodFreq",
+							btns:{
+								b1:{
+									id:"ff-1",
+									value:"1",
+									label:"1-in-5-year"
+								},
+								b2:{
+									id:"ff-2",
+									value:"2",
+									label:"1-in-100-year"
+								},
+								b3:{
+									id:"ff-3",
+									value:"3",
+									label:"1-in-500-year"
+								}
+							}	
+						},
+						tb2:{
+							header:"View Floodplains By Watershed",
+							name:"huc",
+							btns:{
+								b1:{
+									id:"-h12",
+									value:"0",
+									label:"HUC-12"
+								},
+								b2:{
+									id:"-catch",
+									value:"1",
+									label:"Catchment"
+								}
+							}
+						},
+						tb3:{
+							header:"Select Management Action",
+							name:"mngmtAction",
+							btns:{
+								b1:{
+									id:"mact-1",
+									value:"p",
+									label:"Protection"
+								},
+								b2:{
+									id:"mact-2",
+									value:"r",
+									label:"Restoration"
+								}
+							}
+						}
+					}
+				}
+				// object to build filter controls
+				t.filterObj = {
 					group0:{
 						header: "Available Floodplain Area",
 						controls:{
 							con0:{
 								type:"slider",
 								field:"Acres",
-								label:"Available floodplain area for given return interval and management action"
+								label:"Available floodplain area for given return interval and management action",
+								single:true
 							}	
 						}
 					},
@@ -42,7 +102,7 @@ function ( 	declare ) {
 							},
 							con4:{
 								type:"slider",
-								field:"NCCPI",
+								field:"DINCY",
 								label:"Nutrient loading to Gulf of Mexico (SPARROW model)"
 							}
 						}
@@ -53,7 +113,8 @@ function ( 	declare ) {
 							con0:{
 								type:"slider",
 								field:"NCCPI",
-								label:"Agricultural productivity potential of soils"
+								label:"Agricultural productivity potential of soils",
+								single:true
 							}
 						}
 					},
