@@ -19,7 +19,6 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			declare.safeMixin(this, frameworkParameters);
 			// Define object to access global variables from JSON object. Only add variables to varObject.json that are needed by Save and Share. 
 			this.obj = dojo.eval("[" + obj + "]")[0];	
-			this.url = "https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/Meramec/MapServer";
 			this.layerDefs = [];
 			$("#sidebar-help-area").css("display","none");
 		},
@@ -94,7 +93,6 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 				this.obj.stateSet = "yes";	
 				var state = new Object();
 				state = this.obj;
-				console.log(this.obj)
 				return state;	
 			}
 		},
@@ -137,9 +135,10 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			this.clicks.buildElements(this);
 			// Click listeners
 			this.clicks.eventListeners(this);
+			// Call custom app modificaiton function
+			this.variables.modifications(this);
 			// Create ESRI objects and event listeners	
 			this.esriapi.esriApiFunctions(this);
-			
 			this.rendered = true;	
 		}
 	});

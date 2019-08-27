@@ -54,13 +54,6 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 						t.obj.stateSet = "no";
 					}	
 				});	
-				t.map.on("zoom-end",function(z){
-					if ( t.map.getScale() > 125000){
-						$(`#${t.id}catch-text`).show();
-					}else{
-						$(`#${t.id}catch-text`).hide();
-					}
-				})
 				t.sym1  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([88,116,215,1]), 2), new Color([88,116,215]);	
 				t.map.on("click",function(c){
 					//if (t.obj.hucLayer == 2){
@@ -75,15 +68,12 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 						var q = new Query();
 						var qt = new QueryTask(t.url + '/' + t.obj.hucLayer);
 						q.geometry = c.mapPoint;
-						q.outFields = ["NAME","AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
-						if (t.obj.hucLayer == 2){
-							q.outFields = ["AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
-						}
+						q.outFields = ["*"];
 						q.returnGeometry = true;
 						qt.execute(q, function(e){
 							if (e.features[0]){
 								t.map.graphics.clear();
-								t.atts = e.features[0].attributes
+								t.atts = e.features[0].attributes;
 								e.features[0].setSymbol(t.sym1);
 								t.map.graphics.add(e.features[0]);
 								$.each($("#popupAttWrap input"),function(i,v){

@@ -45,7 +45,7 @@ function ( declare, Query, QueryTask ) {
 											</label>
 										</div>
 										<div class="flex1a">
-											<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> acres</span>
+											<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> ${v1.unit}</span>
 											<div class="slider-container range-slider" style="width:170px;">
 												<div id="${t.id}-${v1.field}" class="slider"></div>
 											</div>
@@ -205,7 +205,7 @@ function ( declare, Query, QueryTask ) {
 						var sl = $('#' + c.target.id).parent().parent().parent().find('.slider')[0].id 
 						$('#' + sl).slider( "option", "disabled", true );
 						var ben  = sl.split("-").pop();
-						t[ben] = "";
+						t.exp[ben] = "";
 						t.clicks.layerDefs(t);
 					}	
 					t.clicks.cbChecker(t);	
@@ -222,7 +222,7 @@ function ( declare, Query, QueryTask ) {
 					}
 					if (c.target.checked == false){
 						var ben = $('#' + c.target.id).parent().parent().next().find('input')[0].name;
-						t[ben] = "";
+						t.exp[ben] = "";
 						t.clicks.layerDefs(t);
 						$.each($('#' + c.target.id).parent().parent().next().find('input'),function(i,v){
 							$(v).attr('disabled', true)		
@@ -238,9 +238,9 @@ function ( declare, Query, QueryTask ) {
 						field = ben;
 					}
 					var val = c.target.value;
-					t[ben] = "( " + field + " = " + val + " )";
+					t.exp[ben] = "( " + field + " = " + val + " )";
 					if (val == 1 && ben == "TNC"){
-						t[ben] = "( " + field + " > 0 )";
+						t.exp[ben] = "( " + field + " > 0 )";
 					}
 					t.clicks.layerDefs(t);
 				})
@@ -362,9 +362,9 @@ function ( declare, Query, QueryTask ) {
 						v1 = v1/t.sliderObj[t.fe][ben].div
 					}
 					if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
-						t[ben] = "(" + field + " >= " + v0 + ")";	
+						t.exp[ben] = "(" + field + " >= " + v0 + ")";	
 					}else{
-						t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+						t.exp[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
 					}
 					t.clicks.layerDefs(t);
 				}
@@ -373,7 +373,7 @@ function ( declare, Query, QueryTask ) {
 					var dis = $('#' + e.target.id).slider("option", "disabled");
 					var vis = $('#' + e.target.id).is(":visible")
 					if (dis === true){
-						t[ben] = "";	
+						t.exp[ben] = "";	
 					}else{
 						if (vis){
 							var v0 = ui.values[0]
@@ -384,12 +384,12 @@ function ( declare, Query, QueryTask ) {
 								v1 = v1/t.sliderObj[t.fe][ben].div
 							}
 							if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
-								t[ben] = "(" + field + " >= " + v0 + ")";	
+								t.exp[ben] = "(" + field + " >= " + v0 + ")";	
 							}else{
-								t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+								t.exp[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
 							}
 						}else{
-							t[ben] = "";
+							t.exp[ben] = "";
 						}
 					}
 					t.clicks.sliderSlide(e, ui, t);
@@ -419,7 +419,7 @@ function ( declare, Query, QueryTask ) {
 			},
 			layerDefs: function(t){
 				if (t.obj.stateSet == "no"){
-					t.obj.exp = [t.Acres, t.TN, t.TP, t.Sed, t.SedAcc, t.DINCY, t.impWet, t.NCCPI, t.fprank, t.adjProt, t.EcoSig, t.inIBA, t.ABCcorr, t.WT_TOT, t.anyHab, t.cumu_hci, t.HPFedEnd, t.popnow, t.pop2050, t.Dam2050]
+					t.obj.exp = t.exp
 				}
 				var exp = "OBJECTID > 0";
 				var cnt = 0;
@@ -430,7 +430,7 @@ function ( declare, Query, QueryTask ) {
 				});	
 				if (cnt > 0){
 					exp = "";
-					t.obj.exp.unshift(t.obj.ffDef);
+					//t.obj.exp.unshift(t.obj.ffDef);
 					$.each(t.obj.exp, function(i, v){
 						if (v.length > 0){
 							if (exp.length == 0){
